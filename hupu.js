@@ -1,8 +1,7 @@
 /*
-虎扑 App - 去除 NBA 页面中间所有活动横幅
-
-接口: /bplbffapi/device/v1/nav/content
-目标: 清空 result.components 中 code === "match" 的 data.eventInfo 数组
+虎扑 App - NBA 首页清理
+1. 去除 match 组件下的三个活动横幅（eventInfo）
+2. 去除 prominentSlot 组件下的「AI工坊」和「NBA游戏」图标
 */
 
 const url = $request.url;
@@ -15,29 +14,46 @@ if (targetPattern.test(url)) {
         const obj = JSON.parse($response.body);
         let removedCount = 0;
 
-        // 逐层检查
         if (obj && obj.result && Array.isArray(obj.result.components)) {
             obj.result.components.forEach(component => {
-                // 找到目标组件：code === "match" 且带 eventInfo 数组
+
+                // ============ 处理 1：去除活动横幅 ============
                 if (
-                    component.code === "match" && 
-                    component.data && 
+                    component.code === "match" &&
+                    component.data &&
                     Array.isArray(component.data.eventInfo)
                 ) {
-                    const originalLength = component.data.eventInfo.length;
-                    if (originalLength > 0) {
-                        // 不管里面是什么活动，全部清空
+                    const before = component.data.eventInfo.length;
+                    if (before > 0) {
                         component.data.eventInfo = [];
-                        removedCount += originalLength;
+                        removedCount += before;
                     }
                 }
+
+                // ============ 处理 2：去除 prominentSlot 中的图标 ============
+                if (
+                    component.code === "prominentSlot" &&
+                    component.data &&
+                    Array.isArray(component.data.configs)
+                ) {
+                    const removeTitles = ["AI工坊", "NBA游戏"];
+                    const before = component.data.configs.length;
+
+                    component.data.configs = component.data.configs.filter(item => {
+                        const title = item?.title || "";
+                        const shouldRemove = removeTitles.includes(title);
+                        if (shouldRemove) removedCount++;
+                        return !shouldRemove;
+                    });
+                }
+
             });
         }
 
         if (removedCount > 0) {
-            console.log(`Hupu NBA Cleaner: 成功移除了 ${removedCount} 个活动横幅。`);
+            console.log(`Hupu NBA Cleaner: 成功移除了 ${removedCount} 个元素。`);
         } else {
-            console.log(`Hupu NBA Cleaner: 未发现活动横幅。`);
+            console.log(`Hupu NBA Cleaner: 未发现需要处理的内容。`);
         }
 
         $done({ body: JSON.stringify(obj) });
