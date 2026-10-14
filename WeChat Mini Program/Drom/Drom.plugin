@@ -1,0 +1,11 @@
+#!name = 猛鬼宿舍/躺平发育
+#!desc = 怎么爽怎么来
+#!author = Keshi
+#!icon = https://streamshare.wireway.ch/download/eujg05hr
+
+[Script]
+# 登录 + 用户数据 双接口合并版
+http-response ^https?:\/\/(tttp01|api)\.mihuangame\.com\/api\/v\d+\/sys\/user\/(login|data) script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/WeChat%20Mini%20Program/Drom/Dorm.js, requires-body=true, max-size=0, tag=猛鬼宿舍
+
+[MITM]
+hostname = tttp01.mihuangame.com, api.mihuangame.com
