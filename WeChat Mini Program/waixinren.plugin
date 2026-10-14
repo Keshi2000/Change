@@ -1,7 +1,7 @@
 #!name = 狙击外心人 金币修改 K
 #!desc = 将金币改为5位数
 #!author = Keshi
-#!icon = https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/icon.png
+#!icon = https://streamshare.wireway.ch/download/a5vs5wd4
 
 [Script]
 http-request ^https?:\/\/alien\.kampfiregames\.cn\/game\/player\/sync1 script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/WeChat%20Mini%20Program/waixingren.js, requires-body=true, max-size=0, tag=狙击外星人金币修改
