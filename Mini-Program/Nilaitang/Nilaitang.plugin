@@ -1,0 +1,11 @@
+#!name=躺平系游戏
+#!desc=全皮肤解锁 + 金币/道具修改
+#!author=Keshi
+#!date=2026-10
+#!icon=https://streamshare.wireway.ch/download/lxht14ee
+
+[Script]
+http-response ^https?://idauth\.cdwaterbear\.cn/getStorage script-path=nixingnilaitang.js, requires-body=true, tag=行你来躺, enabled=true
+
+[MITM]
+hostname = %APPEND% idauth.cdwaterbear.cn
