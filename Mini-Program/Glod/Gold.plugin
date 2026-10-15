@@ -4,7 +4,7 @@
 #!icon = https://streamshare.wireway.ch/download/ntziat9f
 
 [Script]
-http-request ^https?:\/\/sit-5gkdzvhy927426ea-1309480127\.ap-shanghai\.app\.tcloudbase\.com\/httpSetUserInfo script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/WeChat%20Mini%20Program/Gold/gold.js, requires-body=true, max-size=0, tag=金矿工
+http-request ^https?:\/\/sit-5gkdzvhy927426ea-1309480127\.ap-shanghai\.app\.tcloudbase\.com\/httpSetUserInfo script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/Glod/gold.js, requires-body=true, max-size=0, tag=金矿工
 
 [MITM]
 hostname = sit-5gkdzvhy927426ea-1309480127.ap-shanghai.app.tcloudbase.com
