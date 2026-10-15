@@ -5,7 +5,7 @@
 #!icon=https://streamshare.wireway.ch/download/lxht14ee
 
 [Script]
-http-response ^https?://idauth\.cdwaterbear\.cn/getStorage script-path=https://gist.githubusercontent.com/Keshi2000/317e2067102e3c13f4b9f085e709b68e/raw/nixingnilaitang.js, requires-body=true, max-size=0, tag=你来躺
+http-response ^https?://idauth\.cdwaterbear\.cn/getStorage script-path=https://gist.githubusercontent.com/Keshi2000/317e2067102e3c13f4b9f085e709b68e/raw/nixingnilaitang.js, requires-body=true, max-size=0, tag=躺平类游戏
 
 [MITM]
 hostname = idauth.cdwaterbear.cn
