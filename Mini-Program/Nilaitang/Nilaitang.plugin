@@ -1,11 +1,11 @@
-#!name=躺平系游戏
-#!desc=全皮肤解锁 + 金币/道具修改
+#!name=行你来躺 全皮肤解锁
+#!desc=全皮肤解锁 + 金币/道具修改（只增不减）
 #!author=Keshi
-#!date=2026-10
-#!icon=https://streamshare.wireway.ch/download/lxht14ee
+#!date=2026-08
+#!icon=
 
 [Script]
-http-response ^https?://idauth\.cdwaterbear\.cn/getStorage script-path=nixingnilaitang.js, requires-body=true, tag=行你来躺, enabled=true
+http-response ^https?://idauth\.cdwaterbear\.cn/getStorage script-path=https://gist.githubusercontent.com/Keshi2000/317e2067102e3c13f4b9f085e709b68e/raw/nixingnilaitang.js, requires-body=true, max-size=0, tag=你来躺
 
 [MITM]
-hostname = %APPEND% idauth.cdwaterbear.cn
+hostname = idauth.cdwaterbear.cn
