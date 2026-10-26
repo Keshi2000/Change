@@ -1,0 +1,17 @@
+#!name = 直播源抓取
+#!desc = 抓取咪咕(FLV)、Jrkan(M3U8) 与百视通(M3U8) 直播源
+#!author = 你的名字
+
+[Script]
+# 规则1：抓取咪咕 HTTP-FLV（不需要 MITM）
+http-request ^http:\/\/.*(miguvideo\.com|migu\.cn).*\.flv script-path=https://raw.githubusercontent.com/你的用户名/你的仓库名/main/get-live-url.js, requires-body=false, tag=抓取咪咕FLV
+
+# 规则2：抓取 Jrkan HTTPS-M3U8（需要 MITM）
+http-request ^https:\/\/hlsz\.yjjcfw\.com\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/你的用户名/你的仓库名/main/get-live-url.js, requires-body=false, tag=抓取Jrkan_M3U8
+
+# 规则3：抓取 百视通(bestv.cn) HTTPS-M3U8（需要 MITM）
+http-request ^https:\/\/.*\.bestv\.cn\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/你的用户名/你的仓库名/main/get-live-url.js, requires-body=false, tag=抓取百视通_M3U8
+
+[MITM]
+# 抓 HTTPS 必须要把这两个域名加进 MITM 列表
+hostname = hlsz.yjjcfw.com, *.bestv.cn
