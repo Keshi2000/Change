@@ -1,6 +1,6 @@
 #!name = 直播源地址提取
 #!desc = 提取源地址
-#!author = 你的名字
+#!author = Keshi
 
 [Script]
 # 规则1：抓取咪咕 HTTP-FLV（不需要 MITM）
