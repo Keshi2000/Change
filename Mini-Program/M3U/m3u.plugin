@@ -1,17 +1,14 @@
-#!name = 直播源地址提取
-#!desc = 提取源地址
+#!name = 地址提取
+#!desc = Test环境
 #!author = Keshi
 
 [Script]
 # 规则1：抓取咪咕 HTTP-FLV（不需要 MITM）
 http-request ^http:\/\/.*(miguvideo\.com|migu\.cn).*\.flv script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取咪咕FLV
 
-# 规则2：抓取 Jrkan HTTPS-M3U8（需要 MITM）
-http-request ^https:\/\/hlsz\.yjjcfw\.com\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取Jrkan_M3U8
-
-# 规则3：抓取 百视通(bestv.cn) 直播/点播 HTTPS-M3U8（需要 MITM）
+# 规则2：抓取 百视通(bestv.cn) 直播/点播 HTTPS-M3U8（需要 MITM）
 http-request ^https:\/\/.*\.bestv\.cn\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取百视通_M3U8
 
 [MITM]
-# 抓 HTTPS 必须要把这两个域名加进 MITM 列表
-hostname = hlsz.yjjcfw.com, *.bestv.cn
+# 抓 HTTPS 必须要把百视通的域名加进 MITM 列表
+hostname = *.bestv.cn
