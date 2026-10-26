@@ -4,8 +4,9 @@ const url = $request.url;
 const lastTime = $persistentStore.read("last_notify_time") || 0;
 const nowTime = Date.now();
 
-// 2. 核心逻辑：如果距离上次弹窗不到 15 秒，直接放行，不弹窗
-if (nowTime - lastTime < 15000) {
+// 2. 核心逻辑：如果距离上次弹窗不到 1 小时（3600000 毫秒），直接放行，不弹窗
+// 这样你看一整场比赛，只会弹一次。如果换台想重新抓，重启一下 Loon 或者等 1 小时。
+if (nowTime - lastTime < 3600000) {
     $done({});
     return;
 }
@@ -23,8 +24,7 @@ if (url.includes("miguvideo.com") || url.includes("migu.cn")) {
 }
 
 // 4. 发送通知，并带上 openUrl
-// 点击通知后，Loon 会把这个链接丢给系统的默认浏览器打开
-$notification.post(title, "👆 点击直接用浏览器播放", url, {
+$notification.post(title, "👆 点击直接用浏览器播放", "已静音防打扰", {
     "openUrl": url
 });
 
