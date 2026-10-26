@@ -9,7 +9,7 @@ http-request ^http:\/\/.*(miguvideo\.com|migu\.cn).*\.flv script-path=https://ra
 # 规则2：抓取 Jrkan HTTPS-M3U8（需要 MITM）
 http-request ^https:\/\/hlsz\.yjjcfw\.com\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取Jrkan_M3U8
 
-# 规则3：抓取 百视通(bestv.cn) HTTPS-M3U8（需要 MITM）
+# 规则3：抓取 百视通(bestv.cn) 直播/点播 HTTPS-M3U8（需要 MITM）
 http-request ^https:\/\/.*\.bestv\.cn\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取百视通_M3U8
 
 [MITM]
