@@ -20,8 +20,6 @@ if (nowTime - lastTime < 3600000) {
 let title = "🎬 抓到视频源";
 if (url.includes("miguvideo.com") || url.includes("migu.cn")) {
     title = "🎬 抓到【咪咕】直播 FLV";
-} else if (url.includes("yjjcfw.com")) {
-    title = "🎬 抓到【Jrkan】直播 M3U8";
 } else if (url.includes("bestv.cn")) {
     title = isLive ? "🎬 抓到【百视通】直播源" : "🎬 抓到【百视通】回放源";
 }
