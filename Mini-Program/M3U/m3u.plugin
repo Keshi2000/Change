@@ -9,14 +9,14 @@ http-request ^http:\/\/.*(miguvideo\.com|migu\.cn).*\.flv script-path=https://ra
 # 2. 咪咕 M3U8 (HTTP)
 http-request ^http:\/\/.*(miguvideo\.com|migu\.cn).*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取咪咕M3U8
 
-# 3. 腾讯体育 M3U8 (HTTPS)
-http-request ^https:\/\/.*\.smtcdns\.net\/.*txycdn\.video\.qq\.com\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取腾讯_M3U8
+# 3. 腾讯体育 M3U8 (HTTPS) - 修复了端口号导致的匹配失败问题
+http-request ^https?:\/\/.*smtcdns.*video\.qq\.com.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取腾讯_M3U8
 
 # 4. 百视通 M3U8 (HTTPS)
-http-request ^https:\/\/.*\.bestv\.cn\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取百视通_M3U8
+http-request ^https?:\/\/.*\.bestv\.cn\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取百视通_M3U8
 
 # 5. Jrkan M3U8 (HTTPS)
-http-request ^https:\/\/hlsz\.yjjcfw\.com\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取Jrkan_M3U8
+http-request ^https?:\/\/hlsz\.yjjcfw\.com\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取Jrkan_M3U8
 
 [MITM]
 # 只有 HTTPS 的源需要 MITM 证书
