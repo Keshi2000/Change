@@ -1,5 +1,5 @@
-#!name = 体育直播源提取
-#!desc = 提取咪咕、腾讯、百视通源地址
+#!name = 源地址提取
+#!desc = Test
 #!author = Keshi
 
 [Script]
@@ -16,5 +16,5 @@ http-request ^https?:\/\/.*smtcdns.*video\.qq\.com.*\.m3u8.* script-path=https:/
 http-request ^https?:\/\/.*\.bestv\.cn\/.*\.m3u8.* script-path=https://raw.githubusercontent.com/Keshi2000/Change/refs/heads/main/Mini-Program/M3U/m3u.js, requires-body=false, tag=抓取百视通_M3U8
 
 [MITM]
-# 去掉了 Jrkan 的域名
+# Test
 hostname = *.smtcdns.net, video.qq.com, *.bestv.cn
