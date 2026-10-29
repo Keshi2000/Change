@@ -10,7 +10,7 @@ if (url.includes("live") || url.includes(".flv") || url.includes("index.m3u8")) 
 const storeKey = isLive ? "last_time_live" : "last_time_vod";
 const lastTime = $persistentStore.read(storeKey) || 0;
 
-// 2. 冷却时间：1小时内同类不重复弹（防止刷新导致刷屏）
+// 2. 冷却时间：1小时内同类不重复弹
 if (nowTime - lastTime < 3600000) {
     $done({});
     return;
@@ -29,9 +29,6 @@ if (url.includes("miguvideo.com") || url.includes("migu.cn")) {
 } else if (url.includes("bestv.cn")) {
     platform = "百视通";
     title = `🎬 抓到【${platform}】源`;
-} else if (url.includes("yjjcfw.com")) {
-    platform = "Jrkan";
-    title = `🎬 抓到【${platform}】源`;
 }
 
 // 4. 发送通知并附带跳转 URL
@@ -42,7 +39,7 @@ $notification.post(title, "👆 点击直接用浏览器播放", "已开启防�
 // 5. 记录独立的冷却时间
 $persistentStore.write(nowTime.toString(), storeKey);
 
-// 6. 打印日志以便后台查看
+// 6. 打印日志
 console.log(`====== 抓到 [${platform}] 链接 ======`);
 console.log(url);
 console.log("==========================");
