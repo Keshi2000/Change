@@ -23,7 +23,7 @@ let platform = "未知";
 if (url.includes("miguvideo.com") || url.includes("migu.cn")) {
     platform = url.includes(".flv") ? "咪咕 FLV" : "咪咕 M3U8";
     title = `🎬 抓到【${platform}】源`;
-} else if (url.includes("smtcdns.net") && url.includes("video.qq.com")) {
+} else if (url.includes("smtcdns") && url.includes("video.qq.com")) {
     platform = "腾讯体育";
     title = `🎬 抓到【${platform}】源`;
 } else if (url.includes("bestv.cn")) {
